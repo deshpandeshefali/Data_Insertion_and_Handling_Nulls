@@ -3,7 +3,7 @@
 
 USE ecommerce_db;
 
--- 1️⃣ Insert sample data into Category
+-- Insert sample data into Category
 INSERT INTO Category (Category_Name)
 VALUES 
 ('Electronics'),
@@ -11,7 +11,7 @@ VALUES
 ('Clothing'),
 ('Home Decor');
 
--- 2️⃣ Insert data into Customers
+--  Insert data into Customers
 INSERT INTO Customers (Name, Email, Phone, Address)
 VALUES
 ('Rahul Sharma', 'rahul@gmail.com', '9876543210', 'Mumbai'),
@@ -19,7 +19,7 @@ VALUES
 ('Amit Verma', 'amitv@gmail.com', '9822012345', NULL),
 ('Priya Joshi', 'priya@gmail.com', '9988776655', 'Delhi');
 
--- 3️⃣ Insert data into Products
+--  Insert data into Products
 INSERT INTO Products (Product_Name, Price, Stock, Category_ID)
 VALUES
 ('Smartphone', 25000, 10, 1),
@@ -28,14 +28,14 @@ VALUES
 ('T-Shirt', 800, 30, 3),
 ('Wall Clock', 1200, 15, 4);
 
--- 4️⃣ Insert Orders
+--  Insert Orders
 INSERT INTO Orders (Customer_ID, Order_Date, Total_Amount)
 VALUES
 (1, '2025-10-15', 29000),
 (2, '2025-10-16', 1250),
 (3, '2025-10-17', 450);
 
--- 5️⃣ Insert Order_Details
+--  Insert Order_Details
 INSERT INTO Order_Details (Order_ID, Product_ID, Quantity, Subtotal)
 VALUES
 (1, 1, 1, 25000),
@@ -44,32 +44,32 @@ VALUES
 (2, 4, 1, 800),
 (3, 3, 1, 450);
 
--- 6️⃣ Insert Payments
+--  Insert Payments
 INSERT INTO Payments (Order_ID, Payment_Date, Payment_Mode, Amount)
 VALUES
 (1, '2025-10-15', 'Credit Card', 29000),
 (2, '2025-10-16', 'Cash', 1250),
 (3, '2025-10-17', 'UPI', 450);
 
--- 7️⃣ UPDATE example (Change customer address)
+--  UPDATE example (Change customer address)
 UPDATE Customers
 SET Address = 'Bangalore'
 WHERE Customer_ID = 3;
 
--- 8️⃣ DELETE example (Remove a cancelled order)
+--  DELETE example (Remove a cancelled order)
 DELETE FROM Orders
 WHERE Order_ID = 3;
 
--- 9️⃣ Handling NULLs (Set missing phone numbers to default value)
+--  Handling NULLs (Set missing phone numbers to default value)
 UPDATE Customers
 SET Phone = '0000000000'
 WHERE Phone IS NULL;
 
--- 🔟 Insert with partial values (auto-handled by defaults)
+--  Insert with partial values (auto-handled by defaults)
 INSERT INTO Products (Product_Name, Price)
 VALUES ('Headphones', 1500);
 
--- ✅ Check final data
+--  Check final data
 SELECT * FROM Customers;
 SELECT * FROM Products;
 SELECT * FROM Orders;
